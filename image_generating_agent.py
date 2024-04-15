@@ -29,7 +29,7 @@ class NFTGenerator(Model):
 
 
 def get_agent_seed() -> str:
-    print("kek")
+    print("Get agent seed.")
     return AGENT_SEED if AGENT_SEED else ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(32))
 
 
@@ -40,7 +40,7 @@ def get_agent_mailbox_key(adress: str) -> str:
         "https://agentverse.ai/v1/agents",
         json={
             'address': adress,
-            'name': 'kek'
+            'name': 'queed'
         },
         headers={
             "Authorization": f"bearer {ACCESS_TOKEN_FETCH_AI}"
@@ -56,7 +56,7 @@ def get_agent_mailbox_key(adress: str) -> str:
 def register_agent(protocol: Protocol, seed: str) -> None:
     data = {
         "agent": Agent(seed=seed).address,
-        "name": "Queed NFT generator",
+        "name": AGENT_NAME,
         "description": "Generates images for NFT collections.",
         "protocolDigest": protocol.digest,
         "modelDigest": NFTGenerator.build_schema_digest(NFTGenerator),
@@ -88,7 +88,7 @@ def register_agent(protocol: Protocol, seed: str) -> None:
 
 def generate_images_stable_diffusion(pipe: DiffusionPipeline, prompt: str, number_of_images: int) -> List[str]:
     files = []
-    for i in number_of_images:
+    for i in range(number_of_images):
         strength = random.uniform(0.1, 1.0)
         guidance_scale = random.uniform(1, 30)
         result = pipe(prompt=prompt, strength=strength, guidance_scale=guidance_scale)
@@ -157,7 +157,7 @@ def main():
     nft_generator_protocol = Protocol("NFTGenerator")
 
     if args.model == "gpu":
-        model = "stabilityai/>stable-cascade"
+        model = "stabilityai/stable-diffusion-xl-base-1.0"
         pipe = DiffusionPipeline.from_pretrained(model, torch_dtype=torch.float16, use_safetensors=True, variant="fp16")
         pipe.to("cuda")
     elif args.model == "cpu":
