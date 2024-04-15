@@ -1,3 +1,5 @@
+# Queed NFT generator
+
 install python3.10
 install venv: 'python -m pip install --user virtualenv'
 create virtual envirement: 'python3 -m venv .venv'
