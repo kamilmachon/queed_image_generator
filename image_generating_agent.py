@@ -29,7 +29,6 @@ class NFTGenerator(Model):
 
 
 def get_agent_seed() -> str:
-    print("Get agent seed.")
     return AGENT_SEED if AGENT_SEED else ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(32))
 
 

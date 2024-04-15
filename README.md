@@ -3,7 +3,7 @@
 ## 1. Setup
 ### 1.1. Instalacja Pythona 3.10.8
 
-Zainstaluj Python 3.10.8 i dodaj go do zmiennej PATH:
+Zainstaluj Python 3.10.8 (w przypadku windowsa dodaj go również do zmiennej PATH):
 - [Python Release Python 3.10.8 | Python.org](https://www.python.org/downloads/release/python-3108/)
 
 ### 1.2. Konfiguracja wirtualnego środowiska
@@ -64,3 +64,4 @@ Model na zbudowany architekturze Würstchen - pracuje w znacząco mniejszej prze
 - SDXL 1.0 1024x1024 na GPU (RTX 4080): ~20s
 - SDXL 1.0 1024x1024 na CPU (i7-13700K + ~40GB RAM): ~18min
 - Cascade CPU 512x512 (AMD Ryzen 5 5600h): ~4 min
+- Cascade CPU 512x512 (i7-9750H): ~1 min
