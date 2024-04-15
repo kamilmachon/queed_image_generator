@@ -1,0 +1,7 @@
+uagents-ai-engine
+uagents
+requests
+boto3
+transformers
+diffusers
+accelerate
